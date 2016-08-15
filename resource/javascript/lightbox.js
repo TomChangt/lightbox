@@ -2,8 +2,14 @@
  * Created by changtong on 16/8/15.
  */
 ;(function($){
-    var LightBox = function(){
+    var LightBox = function(settings){
         var self = this;
+
+        this.settings = {
+            speed:500
+        }
+
+        $.extend(this.settings,settings||{});
 
         //创建遮罩和弹出层
 
@@ -47,13 +53,15 @@
         });
 
         this.popupMask.click(function(){
-            $(this).fadeOut();
-            self.popupWin.fadeOut();
+            $(this).fadeOut(self.settings.speed);
+            self.popupWin.fadeOut(self.settings.speed);
+            self.clear = false;
         });
 
         this.closeBtn.click(function(){
-            self.popupMask.fadeOut();
-            self.popupWin.fadeOut();
+            self.popupMask.fadeOut(self.settings.speed);
+            self.popupWin.fadeOut(self.settings.speed);
+            self.clear = false;
         });
 
 
@@ -91,6 +99,30 @@
             }
 
         });
+
+        //
+        var timer = null;
+        this.clear = false;
+        $(window).resize(function(){
+            if(self.clear){
+                window.clearTimeout(timer);
+                timer = window.setTimeout(function(){
+                    self.loadPic(self.groupData[self.index].src);
+                },500);
+            }
+
+
+        }).keyup(function(e){
+            var keyValue = e.which;
+
+            if(keyValue == 38 || keyValue == 37){
+                self.prevBtn.click();
+            }else if(keyValue == 40 || keyValue == 39){
+                self.nextBtn.click();
+            }
+
+        });
+
     };
     LightBox.prototype = {
         goto:function(dir){
@@ -129,7 +161,7 @@
             this.popupPic.hide();
             this.picCaptionArea.hide();
 
-            this.popupMask.fadeIn();
+            this.popupMask.fadeIn(self.settings.speed);
 
             var winWidth = $(window).width();
             var winHeight = $(window).height();
@@ -139,7 +171,7 @@
                 height:winHeight/2
             });
 
-            this.popupWin.fadeIn();
+            this.popupWin.fadeIn(self.settings.speed);
 
             var viewHeight = winHeight/2+10;
 
@@ -183,6 +215,7 @@
                 width:'auto',
                 height:'auto'
             }).hide();
+            self.picCaptionArea.hide();
             this.preLoadImg(sourceSrc,function(){
                 self.popupPic.attr('src',sourceSrc);
 
@@ -218,9 +251,10 @@
                 self.popupPic.css({
                     width:picWidth-10,
                     heigth:picHeight-10
-                }).fadeIn();
-                self.picCaptionArea.fadeIn();
+                }).fadeIn(self.settings.speed);
+                self.picCaptionArea.fadeIn(self.settings.speed);
                 self.flag = true;
+                self.clear = true;
             });
 
 
