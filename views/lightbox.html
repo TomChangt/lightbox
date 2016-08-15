@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html"/>
+    <meta charset="UTF-8"/>
+    <title>lightbox插件开发</title>
+    <link rel="stylesheet" href="../resource/css/lightbox.css">
+</head>
+<body>
+<H3>1组图片</H3>
+<div>
+    <img data-role="lightbox"
+         data-src="../resource/image/image1.jpg" data-group="group-1" data-id="fasdfdasfadfa"
+         data-caption="发生放假了的放假啦说的据了解老骥伏枥觉得撒了"
+         src="../resource/image/image1.jpg" width="150" height="100">
+    <img data-role="lightbox"
+         data-src="../resource/image/image2.jpg" data-group="group-1" data-id="fasdf32dasfadfa"
+         data-caption="发生放假了的放假啦说的据了解老骥伏枥觉得撒了"
+         src="../resource/image/image2.jpg" width="150" height="100">
+    <img data-role="lightbox"
+         data-src="../resource/image/image3.jpg" data-group="group-1" data-id="fasdfdfew2asfadfa"
+         data-caption="发生放假了的放假啦说的据了解老骥伏枥觉得撒了"
+         src="../resource/image/image3.jpg" width="150" height="100">
+    <img data-role="lightbox"
+         data-src="../resource/image/image4.jpg" data-group="group-1" data-id="fasfsdfdasfadfa"
+         data-caption="发生放假了的放假啦说的据了解老骥伏枥觉得撒了"
+         src="../resource/image/image4.jpg" width="150" height="100">
+</div>
+<H3>2组图片</H3>
+<div>
+    <img data-role="lightbox"
+         data-src="../resource/image/image7.jpg" data-group="group-2" data-id="fa3231sdfdasfadfa"
+         data-caption="发生放假了的放假啦说的据了解老骥伏枥觉得撒了"
+         src="../resource/image/image7.jpg" width="150" height="100">
+</div>
+<!--遮罩层 -->
+<!--<div id="G-lightbox-mask"></div>-->
+<!--弹出层 -->
+<!--<div id="G-lightbox-popup">-->
+    <!--<div class="lightbox-pic-view">-->
+        <!--<span class="lightbox-btn lightbox-prev-btn lightbox-prev-btn-show"></span>-->
+        <!--<img class="lightbox-img" src="../resource/image/image9.jpg" width="100%">-->
+        <!--<span class="lightbox-btn lightbox-next-btn lightbox-next-btn-show"></span>-->
+    <!--</div>-->
+    <!--<div class="lightbox-pic-caption">-->
+        <!--<div class="lightbox-caption-area">-->
+            <!--<p class="lightbox-pic-desc">图片标题</p>-->
+            <!--<span class="lightbox-of-index">当前索引:1 of 4</span>-->
+        <!--</div>-->
+        <!--<span class="lightbox-close-btn"></span>-->
+    <!--</div>-->
+<!--</div>-->
+
+</body>
+<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.js"></script>
+<script type="text/javascript" src="../resource/javascript/lightbox.js"></script>
+<script>
+    $(function(){
+        var lightbox = new LightBox();
+    });
+</script>
+</html>
